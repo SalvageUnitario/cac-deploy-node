@@ -15,7 +15,7 @@ Se generaron 4 tipos de funcionalidades:
 - UPDATE (PUT): actualizo la información de un libro utilizando su id
 - DELETE (DELETE): borro una entrada de la tabla principal (productos) utilizando el id del libro
 
-El deploy de la base de datos se hizo en [Clever-Cloud](https://clever-cloud.com) y el de la web en [Render](https://render.com/)
+El deploy de la base de datos se hizo en [Clever-Cloud](https://clever-cloud.com) y el de la web en [Render](https://render.com/).
 La URL del proyecto es https://cac-deploy-node.onrender.com
 
 Utilizando algún cliente para APIs tipo Postman o Thunderclient se pueden hacer utilizar las 4 consultas mencionadas.
