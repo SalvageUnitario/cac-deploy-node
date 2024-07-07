@@ -1,6 +1,6 @@
 # cac-deploy-node
-El tp es una web que simula un stock de libros.
-Tiene una base de MySQL con 4 tablas relacionadas entre sí
+El trabajo práctico es un backend que simula un stock de libros.
+Tiene una base de MySQL con 4 tablas relacionadas entre sí:
 + productos
   + categorias
   + cuotas
