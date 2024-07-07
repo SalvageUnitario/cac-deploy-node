@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const popupBorrar = document.getElementById('popupBorrar');
 
     // Mostrar lista de productos al cargar la página
-    fetch('http://localhost:3000/productos')
+    fetch('/productos')
         .then(response => response.json())
         .then(data => {
             const productos = data;
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </ul>
                 `;
                 productoElement.addEventListener('click', () => {
-                    fetch(`http://localhost:3000/productos/${producto.idproductos}`)
+                    fetch(`/productos/${producto.idproductos}`)
                     .then(response => response.json())
                     .then(detalle => {
                         detalleContainer.innerHTML = `
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         // Enviar los datos actualizados al servidor
-        fetch(`http://localhost:3000/productos/${idProducto}`, {
+        fetch(`/productos/${idProducto}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
     confirmarBorradoBtn.addEventListener('click', () => {
         const idProducto = document.getElementById('idProductoEditar').value;
 
-        fetch(`http://localhost:3000/productos/${idProducto}`, {
+        fetch(`/productos/${idProducto}`, {
             method: 'DELETE',
         })
         .then(response => {
@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         // Enviar los datos del nuevo producto al servidor mediante POST
-        fetch('http://localhost:3000/productos', {
+        fetch('/productos', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
