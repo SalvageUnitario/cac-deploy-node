@@ -1,4 +1,4 @@
-import { createPool	 } from 'mysql2/promise';
+import { createPool } from 'mysql2/promise';
 
 // Configurar el pool de conexiones
 const pool = createPool({
@@ -8,6 +8,13 @@ const pool = createPool({
   database: process.env.MYSQL_ADDON_DB,
   connectionLimit: 5,
   connectTimeout: 10000
+
+//   host: '192.168.200.20',
+//   user: 'mariano',
+//   password: 'Telecom1234@',
+//   database: 'libreria',
+//   connectionLimit: 5,
+//   connectTimeout: 10000
 
 });
 
