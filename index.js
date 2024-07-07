@@ -5,7 +5,7 @@ import 'dotenv/config.js'
 
 const app = express();
 const port = process.env.PORT || 3000;
-const BASE_URL = 'https://cac-deploy-node.onrender.com'; 
+
 
 app.use(cors());
 app.use(express.json());
