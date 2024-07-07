@@ -1,10 +1,10 @@
 # cac-deploy-node
 El tp es una web que simula un stock de libros.
 Tiene una base de MySQL con 4 tablas relacionadas entre sí
-productos
-|_____ categorias
-|_____ cuotas
-|_____ promos
++ productos
+  + categorias
+  + cuotas
+  + promos
 
 La tabla productos es la principal y está relacionada con las otras por una clave (fk) para cada una: fk_categoria, fk_promos y fk_cuotas
 Ahi se forma la relación "uno a muchos".
