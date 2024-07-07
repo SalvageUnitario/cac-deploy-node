@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Obtener la lista de productos desde el servidor y mostrarlos
   function loadProducts() {
-    fetch('${BASE_URL}/productos')
+    fetch('/productos')
       .then(response => response.json())
       .then(productos => {
         productListElement.innerHTML = ''; // Limpiar la lista actual de productos
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Función para abrir el modal de edición con los datos del producto
   function openEditModal(productId) {
     
-    fetch(`${BASE_URL}/productos/${productId}`)
+    fetch(`/productos/${productId}`)
       .then(response => response.json())
       .then(product => {
         // Llenar el formulario de edición con los datos del producto
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Función para confirmar la eliminación del producto
   function confirmDelete(productId) {
     if (confirm('¿Está seguro de eliminar este producto?')) {
-      fetch(`${BASE_URL}/productos/${productId}`, {
+      fetch(`/productos/${productId}`, {
         method: 'DELETE'
       })
       .then(response => {
@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function () {
       jsonObject[key] = value;
     });
 
-    fetch('${BASE_URL}/productos', {
+    fetch('/productos', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function () {
       jsonObject[key] = value;
     });
 
-    fetch(`${BASE_URL}/productos/${jsonObject.idproductos}`, {
+    fetch(`/productos/${jsonObject.idproductos}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
