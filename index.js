@@ -1,6 +1,7 @@
 import express from 'express';
 import pool from './config/db.js';
 import cors from 'cors';
+import 'dotenv/config.js'
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -141,5 +142,5 @@ app.delete('/productos/:id', async (req, res) => {
 
 // Inicia el servidor en el puerto especificado
 app.listen(port, () => {
-    console.log(`Servidor corriendo en http://localhost:${port}`);
+    console.log(`Servidor corriendo en ${port}`);
 });
