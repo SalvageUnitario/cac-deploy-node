@@ -21,7 +21,7 @@ Se generaron 4 tipos de funcionalidades:
 - UPDATE (PUT): actualizo la información de un libro utilizando su id
 - DELETE (DELETE): borro una entrada de la tabla principal (productos) utilizando el id del libro
 
-El deploy de la base de datos se hizo en [Clever-Cloud](https://clever-cloud.com target="_blank") y el de la web en [Render](https://render.com/ target="_blank").
+El deploy de la base de datos se hizo en [Clever-Cloud](https://clever-cloud.com) y el de la web en [Render](https://render.com/).
 
 Utilizando algún cliente para APIs tipo Postman o Thunderclient se pueden utilizar las 4 consultas mencionadas a través de la url del proyecto https://cac-deploy-node.onrender.com/productos. 
 Los campos que debe contener un producto son:
@@ -35,4 +35,4 @@ Los campos que debe contener un producto son:
 + fk_promos
 + fk_cuotas
 
-Se entrega también un front para poder interactuar de manera gráfica con el proyecto [URL front](https://cac-deploy-node.onrender.com/productos.html target="_blank"). Me sumé en la parte de backend y el front no lo hice responsive, es mejor verlo en un monitor.
+Se entrega también un front para poder interactuar de manera gráfica con el proyecto [URL front](https://cac-deploy-node.onrender.com/productos.html). Me sumé en la parte de backend y el front no lo hice responsive, es mejor verlo en un monitor.
