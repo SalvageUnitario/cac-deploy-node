@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <p><strong>Cuotas:</strong> ${product.cuotas}</p>
       <p><strong>Promociones:</strong> ${product.banco} - ${product.interes}%</p>
       <p><strong>Stock:</strong> ${product.stock}</p>
+      <p><strong>Ingreso:</strong> ${product.ingreso}</p>
       <img src="${product.foto}" alt="${product.nombre}">
     `;
     productIdToDelete = product.idproductos; // Actualizar productIdToDelete con el ID del producto seleccionado
