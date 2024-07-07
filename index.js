@@ -5,6 +5,7 @@ import 'dotenv/config.js'
 
 const app = express();
 const port = process.env.PORT || 3000;
+const BASE_URL = 'https://cac-deploy-node.onrender.com'; 
 
 app.use(cors());
 app.use(express.json());
@@ -21,6 +22,7 @@ app.get('/productos', async (req, res) => {
         productos.nombre, 
         productos.autor,
         productos.precio,
+        productos.descripcion,
         productos.stock,
         productos.foto,
         categorias.nombre AS categoria,
@@ -29,7 +31,7 @@ app.get('/productos', async (req, res) => {
         promos.descuento,
         cuotas.cuotas,
         cuotas.interes
-        FROM bpyext6912dguhy9wqqt.productos
+        FROM libreria.productos
         JOIN categorias ON productos.fk_categoria = categorias.idcategorias
         JOIN promos ON productos.fk_promos = promos.idpromos
         JOIN cuotas ON productos.fk_cuotas = cuotas.idcuotas
@@ -50,6 +52,7 @@ app.get('/productos', async (req, res) => {
 app.get('/productos/:id', async (req, res) => {
     const id = req.params.id;
     const sql = `SELECT 
+        productos.idproductos,
         productos.nombre, 
         productos.autor,
         productos.precio,
@@ -62,7 +65,7 @@ app.get('/productos/:id', async (req, res) => {
         promos.descuento,
         cuotas.cuotas,
         cuotas.interes
-        FROM bpyext6912dguhy9wqqt.productos
+        FROM libreria.productos
         JOIN categorias ON productos.fk_categoria = categorias.idcategorias
         JOIN promos ON productos.fk_promos = promos.idpromos
         JOIN cuotas ON productos.fk_cuotas = cuotas.idcuotas
@@ -87,7 +90,7 @@ app.get('/productos/:id', async (req, res) => {
 
 //agregar productos
 app.post('/productos', async (req,res)=> {
-    const producto = req.body; //me traigo toda la info del formuhlario
+    const producto = req.body; //me traigo toda la info del formulario
 
     const sql = `INSERT INTO productos SET ?`;
 
@@ -95,7 +98,8 @@ app.post('/productos', async (req,res)=> {
         const connection = await pool.getConnection();
         const [rows] = await connection.query(sql, [producto]);
         connection.release();
-        res.send(`Producto creado con id: ${rows.insertId}`); // Envía un mensaje de creación con id
+        res.json({ message: `Producto creado con id: ${rows.insertId}` });
+        //res.send(`Producto creado con id: ${rows.insertId}`); // Envía un mensaje de creación con id
         }
     catch (error) {
         console.error('Error en la consulta de un producto:', error);
@@ -114,7 +118,7 @@ app.put('/productos/:id', async (req, res)=> {
         const [rows] = await connection.query(sql, [producto, id]);
         connection.release();
         console.log(rows);
-        res.send(`Producto actualizado con id: ${id}`); // Envía un mensaje con la actualización de id
+        res.json(`Producto actualizado con id: ${id}`); // Envía un mensaje con la actualización de id
         }
     catch (error) {
         console.error('Error en la consulta de un producto:', error);
@@ -132,7 +136,7 @@ app.delete('/productos/:id', async (req, res) => {
         const [rows] = await connection.query(sql, [id]);
         connection.release();
         console.log(rows);
-        res.send(`Producto borrado con id: ${id}`);
+        res.json(`Producto borrado con id: ${id}`);
         }
     catch (error) {
         console.error('Error en la consulta de un producto:', error);
