@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Función para mostrar los detalles del producto
   function showProductDetails(product) {
+    let fechaIngresoFormatted = new Date(product.ingreso).toISOString().split('T')[0];
     productDetailsElement.innerHTML = `
       <h3>${product.nombre}</h3>
       <p><strong>Descripción:</strong> ${product.descripcion}</p>
@@ -15,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <p><strong>Cuotas:</strong> ${product.cuotas}</p>
       <p><strong>Promociones:</strong> ${product.banco} - ${product.interes}%</p>
       <p><strong>Stock:</strong> ${product.stock}</p>
-      <p><strong>Ingreso:</strong> ${product.ingreso}</p>
+      <p><strong>Ingreso:</strong> ${fechaIngresoFormatted}</p>
       <img src="${product.foto}" alt="${product.nombre}">
     `;
     productIdToDelete = product.idproductos; // Actualizar productIdToDelete con el ID del producto seleccionado
