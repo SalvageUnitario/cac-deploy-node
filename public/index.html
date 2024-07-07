@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Productos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Lista de Productos</h1>
+  <div class="container">
+    
+    <div class="grid-container">
+         
+      <div class="product-list">
+        <!-- Aquí se añadirán dinámicamente los productos -->
+      </div>
+         
+      <div class="product-details">
+        <h2>Detalles del Producto</h2>
+        <div id="product-details" class="details-container">
+          <!-- Aquí se mostrarán los detalles del producto seleccionado -->
+        </div>
+      </div>
+      <div><button id="add-product-btn" class="add-product-btn">Agregar Producto</button></div>  
+    </div>
+    <!-- Botón para abrir el modal de agregar producto -->
+
+  </div>
+
+  <!-- Modal para agregar producto -->
+  <div id="add-product-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Agregar Nuevo Producto</h2>
+      <form id="add-product-form">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+
+        <label for="autor">Autor:</label>
+        <input type="text" id="autor" name="autor" required><br><br>
+
+        <label for="precio">Precio:</label>
+        <input type="number" id="precio" name="precio" min="0" step="0.01" required><br><br>
+
+        <label for="descripcion">Descripción:</label><br>
+        <textarea id="descripcion" name="descripcion" rows="4"></textarea><br><br>
+
+        <label for="stock">Stock:</label>
+        <input type="number" id="stock" name="stock" min="0" required><br><br>
+
+        <label for="fk_categoria">Categoría:</label>
+        <input type="text" id="fk_categoria" name="fk_categoria" required><br><br>
+
+        <label for="fk_promos">Promociones:</label>
+        <input type="text" id="fk_promos" name="fk_promos"><br><br>
+
+        <label for="fk_cuotas">Cuotas:</label>
+        <input type="number" id="fk_cuotas" name="fk_cuotas" min="1" required><br><br>
+
+        <button type="submit">Agregar Producto</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal para editar producto -->
+  <div id="edit-product-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Editar Producto</h2>
+      <form id="edit-product-form">
+        <input type="hidden" id="edit-product-id" name="idproductos">
+        <label for="edit-nombre">Nombre:</label>
+        <input type="text" id="edit-nombre" name="nombre" required><br><br>
+
+        <label for="edit-autor">Autor:</label>
+        <input type="text" id="edit-autor" name="autor" required><br><br>
+
+        <label for="edit-precio">Precio:</label>
+        <input type="number" id="edit-precio" name="precio" min="0" step="0.01" required><br><br>
+
+        <label for="edit-descripcion">Descripción:</label><br>
+        <textarea id="edit-descripcion" name="descripcion" rows="4"></textarea><br><br>
+
+        <label for="edit-stock">Stock:</label>
+        <input type="number" id="edit-stock" name="stock" min="0" required><br><br>
+
+        <button type="submit">Guardar Cambios</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
