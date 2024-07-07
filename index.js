@@ -31,7 +31,7 @@ app.get('/productos', async (req, res) => {
         promos.descuento,
         cuotas.cuotas,
         cuotas.interes
-        FROM libreria.productos
+        FROM bpyext6912dguhy9wqqt.productos
         JOIN categorias ON productos.fk_categoria = categorias.idcategorias
         JOIN promos ON productos.fk_promos = promos.idpromos
         JOIN cuotas ON productos.fk_cuotas = cuotas.idcuotas
@@ -65,7 +65,7 @@ app.get('/productos/:id', async (req, res) => {
         promos.descuento,
         cuotas.cuotas,
         cuotas.interes
-        FROM libreria.productos
+        FROM bpyext6912dguhy9wqqt.productos
         JOIN categorias ON productos.fk_categoria = categorias.idcategorias
         JOIN promos ON productos.fk_promos = promos.idpromos
         JOIN cuotas ON productos.fk_cuotas = cuotas.idcuotas
