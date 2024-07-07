@@ -7,7 +7,7 @@ Tiene una base de MySQL con 4 tablas relacionadas entre sí:
   + promos
 
 La tabla productos es la principal y está relacionada con las otras por una clave (fk) para cada una: fk_categoria, fk_promos y fk_cuotas
-Ahi se forma la relación "uno a muchos".
+Ahí se forma la relación "uno a muchos".
 
 Se generaron 4 tipos de funcionalidades:
 - CREATE (POST): se da de alta un libro
