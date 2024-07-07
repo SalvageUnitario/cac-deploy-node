@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos librería</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            margin: 0;
+            background-color: #f0f0f0; /* Color de fondo para todo el cuerpo */
+        }
+        #productos {
+            width: 30%;
+            height: 100vh;
+            overflow-y: auto;
+            border-right: 1px solid #ccc;
+            padding-right: 20px;
+            background-color: #fff; /* Color de fondo para el panel de productos */
+        }
+        #detalle-producto {
+            width: 70%;
+            padding: 20px;
+            padding-top: 80px;
+            box-sizing: border-box;
+            background-color: #f9f9f9; /* Color de fondo para el panel de detalle */
+        }
+        .producto {
+            cursor: pointer;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #e0e0e0; /* Color de fondo para cada producto */
+            border-radius: 5px; /* Bordes redondeados */
+            transition: background-color 0.3s ease; /* Transición suave al pasar el mouse */
+        }
+        .producto:hover {
+            background-color: #d0d0d0; /* Color de fondo al pasar el mouse */
+        }
+        .detalle-contenido {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .detalle-info {
+            flex-grow: 1;
+            background-color: #fff; /* Color de fondo para el panel de información del detalle */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+            margin-bottom: 20px; /* Separación inferior */
+        }
+        .detalle-contenido img {
+            max-width: 250px;
+            height: auto;
+            margin-left: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+        }
+        h1 {
+            color: #333; /* Color del título principal */
+        }
+        h2 {
+            color: #555; /* Color del título secundario */
+        }
+        p {
+            color: #666; /* Color del texto */
+        }
+        ul {
+            list-style-type: none; /* Eliminar viñetas de las listas */
+            padding: 0;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="productos">
+        <h1>Productos</h1>
+    </div>
+    <div id="detalle-producto">
+        <h1>Detalle del Producto</h1>
+        <div class="detalle-contenido"></div>
+    </div>
+
+    <script>
+        fetch('http://localhost:3000/productos')
+        .then(response => response.json())
+        .then(data => {
+            const productos = data;
+            const productosContainer = document.querySelector('#productos');
+            const detalleContainer = document.querySelector('.detalle-contenido');
+
+            productos.forEach(producto => {
+                const productoElement = document.createElement('div');
+                productoElement.classList.add('producto');
+                productoElement.innerHTML = `
+                    <h2>${producto.nombre}</h2>
+                    <ul>
+                        <li>Autor: ${producto.autor}</li>
+                        <li>Precio: $${producto.precio}</li>
+                        <li>Categoría: ${producto.categoria}</li>
+                        <li>Banco: ${producto.banco} - Descuento: ${producto.descuento}%</li>
+                        <li>Cuotas: ${producto.cuotas}</li>
+                        <li>Stock: ${producto.stock}</li>
+                    </ul>
+                `;
+                productoElement.addEventListener('click', () => {
+                    fetch(`http://localhost:3000/productos/${producto.idproductos}`)
+                    .then(response => response.json())
+                    .then(detalle => {
+                        detalleContainer.innerHTML = `
+                            <div class="detalle-info">
+                                <h2>${detalle.nombre}</h2>
+                                <p>${detalle.descripción}</p>
+                                <ul>
+                                    <li>Autor: ${detalle.autor}</li>
+                                    <li>Categoría: ${detalle.categoria}</li>
+                                    <li>Precio: $${detalle.precio}</li>
+                                    <li>Banco: ${detalle.banco} - Descuento: ${detalle.descuento}%</li>
+                                    <li>Cuotas: ${detalle.cuotas}</li>
+                                    <li>Interés: ${detalle.interes}</li>
+                                    <li>Stock: ${detalle.stock}</li>
+                                </ul>
+                            </div>
+                            <img src="${detalle.foto}" alt="Imagen de ${detalle.nombre}">
+                        `;
+                    })
+                    .catch(error => console.error('Error:', error));
+                });
+                productosContainer.appendChild(productoElement);
+            });
+        })
+        .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>
