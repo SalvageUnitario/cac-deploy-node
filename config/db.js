@@ -6,7 +6,7 @@ const pool = createPool({
   user: process.env.MYSQL_ADDON_USER,
   password: process.env.MYSQL_ADDON_PASSWORD,
   database: process.env.MYSQL_ADDON_DB,
-  connectionLimit: 5,
+  connectionLimit: 10,
   connectTimeout: 10000
 
 //   host: '192.168.200.20',
