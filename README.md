@@ -5,6 +5,12 @@ Tiene una base de MySQL con 4 tablas relacionadas entre sí:
   + categorias
   + cuotas
   + promos
+ 
+Los datos son de 4 tipos diferentes:
++ INT (ejemplo: precio)
++ VARCHAR (ejemplo: nombre, autor)
++ LONGTEXT (ejemplo: descripcion)
++ DATE (ejemplo: ingreso)
 
 La tabla productos es la principal y está relacionada con las otras por una clave (fk) para cada una: fk_categoria, fk_promos y fk_cuotas
 Ahí se forma la relación "uno a muchos".
