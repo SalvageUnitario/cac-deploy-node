@@ -10,7 +10,7 @@ body {
 }
 
 .container {
-    max-width: 100%;
+    max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
     background-color: #fff;
@@ -32,11 +32,11 @@ h1 {
 }
 
 .product-list {
-    flex: 1; /* Ocupa una fracción del espacio disponible */
+    flex: 0 0 300px; /* Ancho fijo de 300px */
+    max-width: 300px; /* Ajusta el ancho máximo */
     overflow-y: auto; /* Agrega barras de desplazamiento vertical si es necesario */
     background-color: #f0f0f0; /* Color de fondo opcional */
     padding: 20px; /* Espacio interno */
-    max-width: 300px; /* Ajusta el ancho máximo */
 }
 
 .product-details {
