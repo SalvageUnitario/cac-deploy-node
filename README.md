@@ -35,4 +35,4 @@ Los campos que debe contener un producto son:
 + fk_promos
 + fk_cuotas
 
-Se entrega también un front para poder interactuar de manera gráfica con el proyecto [URL front](https://cac-deploy-node.onrender.com/productos.html). Me sumé en la parte de backend y el front no lo hice responsive, es mejor verlo en un monitor.
+Se entrega también un front para poder interactuar de manera gráfica con el proyecto [URL front](https://cac-deploy-node.onrender.com/productos.html). 
