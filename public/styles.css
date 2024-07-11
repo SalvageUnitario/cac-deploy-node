@@ -4,66 +4,73 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-  }
-  
-  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.container {
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  h1 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
     text-align: center;
-  }
-  
-  .grid-container {
+}
+
+.grid-container {
     display: flex;
     gap: 20px;
-  }
-  
-  .product-list {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 300px; /* Ajusta el ancho según sea necesario */
+    flex: 1;
+    overflow: hidden; /* Asegura que el contenido no se desborde */
+}
+
+.product-list {
+    flex: 1; /* Ocupa una fracción del espacio disponible */
     overflow-y: auto; /* Agrega barras de desplazamiento vertical si es necesario */
     background-color: #f0f0f0; /* Color de fondo opcional */
     padding: 20px; /* Espacio interno */
-  }
-  
-  .product-details {
-    flex: 2;
+    max-width: 300px; /* Ajusta el ancho máximo */
+}
+
+.product-details {
+    flex: 2; /* Ocupa dos fracciones del espacio disponible */
     padding-left: 20px;
+    overflow-y: auto; /* Agrega barras de desplazamiento vertical si es necesario */
     width: 100%;
-  }
-  
-  .product-item {
+}
+
+.product-item {
     padding: 10px;
     margin-bottom: 10px;
     background-color: #e7e7e7;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
-  
-  .product-item:hover {
+}
+
+.product-item:hover {
     background-color: #d0d0d0;
-  }
-  
-  .details-container {
+}
+
+.details-container {
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 5px;
-  }
-  
-  .action-buttons {
+    height: 100%;
+}
+
+.action-buttons {
     margin-top: 20px;
-  }
-  
-  button {
+}
+
+button {
     display: inline-block;
     padding: 10px 20px;
     margin-right: 10px;
@@ -71,43 +78,43 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
-  }
-  
-  button:hover {
+}
+
+button:hover {
     background-color: #555;
     color: #fff;
-  }
-  
-  /* Estilos específicos para botones */
-  #add-product-btn {
+}
+
+/* Estilos específicos para botones */
+#add-product-btn {
     background-color: #4caf50;
     color: #fff;
-  }
-  
-  #add-product-btn:hover {
+}
+
+#add-product-btn:hover {
     background-color: #45a049;
-  }
-  
-  #edit-product-btn {
+}
+
+#edit-product-btn {
     background-color: #008cba;
     color: #fff;
-  }
-  
-  #edit-product-btn:hover {
+}
+
+#edit-product-btn:hover {
     background-color: #007bb5;
-  }
-  
-  #delete-product-btn {
+}
+
+#delete-product-btn {
     background-color: #f44336;
     color: #fff;
-  }
-  
-  #delete-product-btn:hover {
+}
+
+#delete-product-btn:hover {
     background-color: #da190b;
-  }
-  
-  /* Estilos del modal */
-  .modal {
+}
+
+/* Estilos del modal */
+.modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -118,9 +125,9 @@ body {
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
     padding-top: 60px;
-  }
-  
-  .modal-content {
+}
+
+.modal-content {
     background-color: #fff;
     margin: 5% auto;
     padding: 20px;
@@ -128,19 +135,18 @@ body {
     width: 80%;
     max-width: 500px;
     border-radius: 10px;
-  }
-  
-  .close {
+}
+
+.close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
+}
+
+.close:hover,
+.close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
-  }
-  
+}
