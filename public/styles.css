@@ -40,7 +40,8 @@ h1 {
 }
 
 .product-details {
-    flex: 2; /* Ocupa dos fracciones del espacio disponible */
+    flex: 1; /* Ocupa el espacio restante */
+    min-width: 400px; /* Ancho mínimo de 400px */
     padding-left: 20px;
     overflow-y: auto; /* Agrega barras de desplazamiento vertical si es necesario */
     width: 100%;
