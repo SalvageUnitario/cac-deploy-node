@@ -41,7 +41,7 @@ h1 {
 
 .product-details {
     flex: 1; /* Ocupa el espacio restante */
-    min-width: 400px; /* Ancho mínimo de 400px */
+    min-width: 500px; /* Ancho mínimo de 400px */
     padding-left: 20px;
     overflow-y: auto; /* Agrega barras de desplazamiento vertical si es necesario */
     width: 100%;
